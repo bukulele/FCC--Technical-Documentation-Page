@@ -11,7 +11,7 @@ html {
 }
 
 header {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     margin: 2rem 1rem;
 }
@@ -58,6 +58,7 @@ footer {
     border-right: rgba(0, 0, 0, 1);
     border-right-style: solid;
     border-right-width: 1px;
+    width: auto;
 }
 
 .navbar-sticky {
@@ -65,34 +66,28 @@ footer {
     height: 100vh;
     top: 0px;
     overflow: auto;
-}
-
-.navbar-styling ul {
-    list-style-type: none;
     display: grid;
-    grid-auto-rows: auto;
-    width: 100%;
+    grid-auto-rows: 3rem;
+    width: content-box;
+    scrollbar-width: thin;
 }
 
-.navbar-styling li {
+.navbar-styling a,
+.navbar-styling header {
     border-bottom: 1px solid black;
-    width: 100%;
-    padding: 1rem;
+    padding: 1rem 2rem;
     font-weight: bold;
+    margin: 0px;
+    white-space: nowrap;
 }
 
-.navbar-styling li:hover {
+.navbar-styling a:hover {
     background-color: rgba(227, 227, 227, 1);
-}
-
-.navbar-styling li:first-of-type {
-    border-top: 1px solid black;
 }
 
 .nav-link {
     text-decoration: none;
-    color: rgba(0, 0, 0, 1);
-    text-transform: uppercase;
+    color: rgba(64, 64, 64, 1);
 }
 
 .main-styling,
@@ -109,7 +104,8 @@ footer {
     font-weight: bold;
 }
 
-.main-section>p {
+.main-section>p,
+.footer-styling>p {
     margin: 1rem;
 }
 
