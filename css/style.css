@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 2rem 1rem;
+}
+
+code {
+    background-color: rgba(227, 227, 227, 1);
+    border-radius: 3px;
+    padding: 3px;
+}
+
+body {
+    display: grid;
+    grid-template-columns: minmax(max-content, max-content) auto;
+    grid-template-rows: auto minmax(max-content, max-content);
+    grid-template-areas: "nav main" "nav footer";
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+.main-styling ul,
+.main-styling li {
+    margin: 0.5rem 0rem 0.5rem 3rem;
+}
+
+.main-styling a,
+.footer-styling a {
+    color: rgba(0, 141, 242, 1);
+    text-decoration: none;
+}
+
+.main-styling a:hover,
+.footer-styling a:hover {
+    text-decoration: underline;
+}
+
+.navbar-styling {
+    grid-area: nav;
+    border-right: rgba(0, 0, 0, 1);
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+
+.navbar-sticky {
+    position: sticky;
+    height: 100vh;
+    top: 0px;
+    overflow: auto;
+}
+
+.navbar-styling ul {
+    list-style-type: none;
+    display: grid;
+    grid-auto-rows: auto;
+    width: 100%;
+}
+
+.navbar-styling li {
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.navbar-styling li:hover {
+    background-color: rgba(227, 227, 227, 1);
+}
+
+.navbar-styling li:first-of-type {
+    border-top: 1px solid black;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 1);
+    text-transform: uppercase;
+}
+
+.main-styling,
+.footer-styling {
+    display: block;
+    width: 90%;
+    margin: auto;
+    text-align: justify;
+    padding: 1px;
+}
+
+.text-marked {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.main-section>p {
+    margin: 1rem;
+}
+
+.code-block {
+    width: 50%;
+    background-color: rgba(227, 227, 227, 1);
+    border-radius: 3px;
+    padding: 1rem;
+    margin: auto;
+}
