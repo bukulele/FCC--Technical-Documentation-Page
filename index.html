@@ -12,7 +12,7 @@
 <body>
     <nav id="navbar" class="navbar-styling">
         <div class="navbar-sticky">
-            <header>Introduction to C#</header>
+            <header tabindex="0">Introduction to C#</header>
             <a href="#General_info" class="nav-link">General info</a>
             <a href="#.NET_architecture" class="nav-link">.NET architecture</a>
             <a href="#Hello_World" class="nav-link">Hello World</a>
@@ -59,14 +59,14 @@
             <p>The "Hello, World" program is traditionally used to introduce a programming language. Here it is in C#:</p>
             <div class="code-block">
                 <pre><code>
-                using System;
-                class Hello
-                {
-                    static void Main()
-                    {
-                        Console.WriteLine("Hello, World");
-                    }
-                }
+using System;
+class Hello
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello, World");
+    }
+}
                 </code></pre>
             </div>
             <p>The "Hello, World" program starts with a <code>using</code> directive that references the <code>System</code> namespace. Namespaces provide a hierarchical means of organizing C# programs and libraries. Namespaces contain types and other namespaces—for
@@ -160,9 +160,9 @@
                 following example, an <code>int</code> value is converted to <code>object</code> and back again to <code>int</code>.</p>
             <div class="code-block">
                 <pre><code>
-                    int i = 123;
-                    object o = i;    // Boxing
-                    int j = (int)o;  // Unboxing
+int i = 123;
+object o = i;    // Boxing
+int j = (int)o;  // Unboxing
                 </code></pre>
             </div>
             <p>When a value of a value type is assigned to an <code>object</code> reference, a "box" is allocated to hold the value. That box is an instance of a reference type, and the value is copied into that box. Conversely, when an <code>object</code>                reference is cast to a value type, a check is made that the referenced <code>object</code> is a box of the correct value type. If the check succeeds, the value in the box is copied to the value type.</p>
@@ -207,43 +207,43 @@
             <p>As a small example, consider an assembly that contains the following code:</p>
             <div class="code-block">
                 <pre><code>
-                using System;
+using System;
 
-                namespace Acme.Collections
+namespace Acme.Collections
+{
+    public class Stack&lt;T&gt;
+        {
+            Entry _top;
+            public void Push(T data)
+            {
+                 _top = new Entry(_top, data);
+            }
+
+            public T Pop()
+            {
+                if (_top == null)
                 {
-                    public class Stack&lt;T&gt;
-                        {
-                            Entry _top;
-                            public void Push(T data)
-                            {
-                                _top = new Entry(_top, data);
-                            }
+                    throw new InvalidOperationException();
+                }
+                T result = _top.Data;
+                _top = _top.Next;
 
-                            public T Pop()
-                            {
-                                if (_top == null)
-                                {
-                                    throw new InvalidOperationException();
-                                }
-                                T result = _top.Data;
-                                _top = _top.Next;
-
-                                return result;
-                            }
+                return result;
+            }
                             
-                            class Entry
-                            {
-                                public Entry Next { get; set; }
-                                public T Data { get; set; }
+            class Entry
+            {
+                public Entry Next { get; set; }
+                public T Data { get; set; }
                                 
-                                public Entry(Entry next, T data)
-                                {
-                                    Next = next;
-                                    Data = data;
-                                }
-                            }
-                        }
-                    }
+                public Entry(Entry next, T data)
+                {
+                    Next = next;
+                    Data = data;
+                }
+            }
+        }
+}
                 </code></pre>
             </div>
             <p>The fully qualified name of this class is <code>Acme.Collections.Stack</code>. The class contains several members: a field named <code>top</code>, two methods named <code>Push</code> and <code>Pop</code>, and a nested class named <code>Entry</code>.
@@ -258,22 +258,22 @@
                 made available in a C# program simply by referencing that assembly when compiling the program. For example, this program uses the <code>Acme.Collections.Stack</code> class from the <code>acme.dll</code> assembly:</p>
             <div class="code-block">
                 <pre><code>
-                using System;
-                using Acme.Collections;
+using System;
+using Acme.Collections;
                 
-                class Example
-                {
-                    public static void Main()
-                    {
-                        var s = new Stack<int>();
-                        s.Push(1); // stack contains 1
-                        s.Push(10); // stack contains 1, 10
-                        s.Push(100); // stack contains 1, 10, 100
-                        Console.WriteLine(s.Pop()); // stack contains 1, 10
-                        Console.WriteLine(s.Pop()); // stack contains 1
-                        Console.WriteLine(s.Pop()); // stack is empty
-                    }
-                }
+class Example
+{
+    public static void Main()
+    {
+        var s = new Stack<int>();
+        s.Push(1); // stack contains 1
+        s.Push(10); // stack contains 1, 10
+        s.Push(100); // stack contains 1, 10, 100
+        Console.WriteLine(s.Pop()); // stack contains 1, 10
+        Console.WriteLine(s.Pop()); // stack contains 1
+        Console.WriteLine(s.Pop()); // stack is empty
+    }
+}
             </code></pre>
             </div>
             <p>To compile this program, you would need to reference the assembly containing the stack class defined in the earlier example.</p>
@@ -285,8 +285,9 @@
     </main>
     <footer class="footer-styling">
         <header>Source</header>
-        <p>All the data in this page taken from <a href="https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/">Microsoft web-site</a></p>
+        <p>All the data in this page taken from <a href="https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/">Microsoft web-site</a>.</p>
     </footer>
+    <a href="#navbar" class="button up-button">UP</a>
 </body>
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
